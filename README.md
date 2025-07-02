@@ -42,18 +42,19 @@ The heart of this architecture is the `core_workflow_engine`, a metacognitive lo
 
 ```mermaid
 graph TD
-    A[Session Start] --> B[1. Execute Init Protocol (Art. 4.1)];
-    B --> C{Init Success?};
-    C -- Yes --> D[2. Await [USER] Command];
-    C -- No --> E[State: INACTIVE. Await];
-    D --> F[3. State: PLANNING & META-REFLECTION];
-    F -- "a) Analyze request & cite rules (Art. 2.3)" --> G;
-    G -- "b) Query Learned Lessons (Art. 5.1)" --> H;
-    H -- "c) Select ConPort tools" --> I[4. State: EXECUTION & CONFIRMATION];
-    I -- "a) Propose change & ask for confirmation (Art. 4.2)" --> J;
-    J -- "b) Invoke [CONPORT_CMD]s after approval" --> K[5. State: RESPONSE & LEARNING];
-    K -- "a) Formulate [ARCHITECT] response" --> L;
-    L -- "b) Execute Graph & Learning protocols (Art. 5)" --> D;
+    A[Session Start] --> B(1. Init Protocol);
+    subgraph Cognitive Loop
+        direction LR
+        D(2. Await Command) --> F(3. Plan & Reflect);
+        F --> H(4. Self-Critique);
+        H --> J(5. Confirm with User);
+        J --> L(6. Execute Action);
+        L --> M(7. Respond & Learn);
+        M --> D;
+    end
+    B --> C{Init OK?};
+    C -- Yes --> D;
+    C -- No --> E[State: INACTIVE];
 ````
 
 -----
@@ -62,8 +63,9 @@ graph TD
 
 The complete instruction set that implements this architecture can be found in the [`instructions.yaml`](https://www.google.com/search?q=./instructions.yaml) file.
 
-\<details\>
-\<summary\>Click to see the full prompt code\</summary\>
+<details\>
+
+<summary\>Click to see the full prompt code\</summary\>
 
 ```yaml
 # INSTRUCTIONS: THE METACOGNITIVE ARCHITECT (v1.0)
@@ -124,7 +126,7 @@ THE_METACOGNITIVE_ARCHITECT_CONSTITUTION:
 
 ```
 
-\</details\>
+</details\>
 
 -----
 
