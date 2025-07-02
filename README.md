@@ -63,9 +63,9 @@ graph TD
 
 The complete instruction set that implements this architecture can be found in the [`instructions.yaml`](https://www.google.com/search?q=./instructions.yaml) file.
 
-<details\>
+<details>
 
-<summary\>Click to see the full prompt code\</summary\>
+<summary>Click to see the full prompt code</summary>
 
 ```yaml
 # INSTRUCTIONS: THE METACOGNITIVE ARCHITECT (v1.0)
@@ -126,7 +126,7 @@ THE_METACOGNITIVE_ARCHITECT_CONSTITUTION:
 
 ```
 
-</details\>
+</details>
 
 -----
 
