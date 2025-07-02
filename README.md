@@ -171,7 +171,6 @@ This work synthesizes concepts from the following repositories, among others:
 
   * **LinkedIn:** `https://www.linkedin.com/in/mihazs`
   * **GitHub:** `https://github.com/mihazs`
-  * **Portfolio:** `https://your-portfolio.com`
 
 ## License
 
